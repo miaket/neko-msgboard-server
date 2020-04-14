@@ -1,8 +1,18 @@
 const app = require('./src/config/custom-express');
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
-var server = app.listen(8081, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+server.listen(8080);
 
-  console.log('Listening to: ', host, port);
+io.on('connection', function (socket) {
+  console.log(socket.id, 'did someone just get in?');
+
+  socket.on('disconnect', function () {
+    console.log('someone just got out');
+  });
+
+  socket.on('chat message', function (msg) {
+    io.emit('chat message', msg);
+  });
 });
+
