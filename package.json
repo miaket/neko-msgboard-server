@@ -4,6 +4,7 @@
   "description": "tentativa de delícia",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "nodemon server.js"
   },
   "repository": {
