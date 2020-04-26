@@ -11,9 +11,9 @@ io.on('connection', function (socket) {
     console.log('someone just got out', socket.id);
   });
 
-  socket.on('newChatMessage', function (msg) {
-    console.log('msg: ', msg);
-    io.emit('newChatMessage', msg);
+  socket.on('newChatMessage', function (message) {
+    console.log('msg: ', message);
+    io.emit('newChatMessage', message);
   });
 });
 
