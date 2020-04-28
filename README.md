@@ -14,5 +14,5 @@ npm install
 
 Run the following command to run the application
 ```
-npm start
+npm run dev
 ```
